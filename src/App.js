@@ -1,29 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
-function App() {
+const initialState = {
+  input: '',
+  todos: [],
+  theme: 'light',
+};
+
+const App = () => {
+  const [state, setState] = useState(initialState);
+  useEffect(() => {
+    setState({ theme: 'dark' });
+    setState({ todos: ['run'] });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="text-2xl text-center text-red-800">Hello world</h1>
+      <p>{state.todos.map((todo) => todo)}</p>
     </div>
   );
-}
+};
 
 export default App;
