@@ -11,11 +11,12 @@ const App = () => {
   useEffect(() => {
     setState({ theme: 'dark' });
     setState({ todos: ['run'] });
+    document.documentElement.classList.add(state.theme);
   }, []);
 
   return (
     <div className="App">
-      <h1 className="text-2xl text-center text-red-800">Hello world</h1>
+      <h1 className="text-6xl text-center text-red-500 font-bold">Hello world</h1>
       <p>{state.todos.map((todo) => todo)}</p>
     </div>
   );
