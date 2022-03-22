@@ -68,7 +68,7 @@ class TodoContainer extends React.Component {
   render() {
     const { todos } = this.state;
     return (
-      <div className="w-screen h-screen flex flex-col justify-center align-center">
+      <div className="w-screen h-screen overflow-hidden flex flex-col justify-center align-center">
         <div className="lg:w-6/12 w-4/5 mx-auto flex flex-col align-center">
           <Header />
           <InputTodo addTodoProps={this.addTodoItem} />

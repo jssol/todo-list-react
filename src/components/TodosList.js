@@ -7,7 +7,7 @@ const TodosList = (props) => {
 
   return (
     <ul
-      className="w-full lg:w-11/12 flex flex-col align-center self-center mx-auto"
+      className="w-full max-h-80 overflow-y-auto lg:w-11/12 flex flex-col align-center self-center mx-auto"
     >
       {todos.map((todo) => (
         <TodoItem
