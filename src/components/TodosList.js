@@ -6,7 +6,9 @@ const TodosList = (props) => {
   const { todos, handleChangeProps, deleteTodoProps } = props;
 
   return (
-    <ul>
+    <ul
+      className="w-full lg:w-11/12 flex flex-col align-center self-center mx-auto"
+    >
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}
