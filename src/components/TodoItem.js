@@ -25,7 +25,7 @@ const TodoItem = (props) => {
       <button
         type="button"
         onClick={() => deleteTodoProps(id)}
-        className="ml-2 bg-red-200 text-xs text-center font-semibold rounded-full text-red-600 p-1 h-8"
+        className="ml-2 bg-red-200 text-xs text-center font-semibold rounded-full text-red-600 py-1 px-2 h-8"
       >
         Delete
       </button>
