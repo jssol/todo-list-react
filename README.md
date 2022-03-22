@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# Todo List with React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this app, users should be able to:
+
+- Add new tasks
+- Edit tasks
+- Remove tasks
+- Mark tasks as completed
 
 ## Available Scripts
 
