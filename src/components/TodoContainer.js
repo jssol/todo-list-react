@@ -8,50 +8,28 @@ class TodoContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [
-        {
-          id: uuidv4(),
-          title: 'Setup development environment',
-          completed: true,
-        },
-        {
-          id: uuidv4(),
-          title: 'Develop website and add content',
-          completed: false,
-        },
-        {
-          id: uuidv4(),
-          title: 'Deploy to live server',
-          completed: false,
-        },
-      ],
+      todos: [],
     };
   }
 
-  handleChange = (id) => {
-    this.setState((state) => ({
-      todos: state.todos.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            completed: !todo.completed,
-          };
-        }
-        return todo;
-      }),
-    }));
-  };
+  componentDidMount() {
+    const temp = localStorage.getItem('todos');
+    const loadedTodos = JSON.parse(temp);
+    if (loadedTodos) {
+      this.setState({
+        todos: loadedTodos,
+      });
+    }
+  }
 
-  deleteTodo = (id) => {
-    this.setState((state) => {
-      const { todos } = state;
-      return {
-        todos: [
-          ...todos.filter((todo) => todo.id !== id),
-        ],
-      };
-    });
-  };
+  componentDidUpdate(prevProps, prevState) {
+    const { todos } = this.state;
+    const { prevTodos } = prevState;
+    if (prevTodos !== todos) {
+      const temp = JSON.stringify(todos);
+      localStorage.setItem('todos', temp);
+    }
+  }
 
   addTodoItem = (title) => {
     const { todos } = this.state;
@@ -72,6 +50,31 @@ class TodoContainer extends React.Component {
           return {
             ...todo,
             title: updatedTitle,
+          };
+        }
+        return todo;
+      }),
+    }));
+  };
+
+  deleteTodo = (id) => {
+    this.setState((state) => {
+      const { todos } = state;
+      return {
+        todos: [
+          ...todos.filter((todo) => todo.id !== id),
+        ],
+      };
+    });
+  };
+
+  handleChange = (id) => {
+    this.setState((state) => ({
+      todos: state.todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed,
           };
         }
         return todo;
