@@ -7,9 +7,21 @@ In this app, users should be able to:
 - Remove tasks
 - Mark tasks as completed
 
+## Screenshot
+
+![app-screenshot](./screenshot.png)
+
+## To get a local copy of the project
+
+Run `git clone git@github.com:jssol/todo-list-react.git && cd $_`
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Gets all the required dependencies of the projects.
 
 ### `npm start`
 
@@ -33,8 +45,6 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
