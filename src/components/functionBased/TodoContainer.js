@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Route, Switch } from 'react-router-dom';
 import TodosList from './TodosList';
 import Header from './Header';
 import InputTodo from './InputTodo';
