@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { HiTrash } from 'react-icons/hi';
 
 const TodoItem = (props) => {
   const [state, setState] = useState({ editing: false });
@@ -61,9 +62,9 @@ const TodoItem = (props) => {
       <button
         type="button"
         onClick={() => deleteTodoProps(id)}
-        className="ml-2 bg-red-200 text-xs text-center font-semibold rounded-full text-red-600 py-1 px-2 h-8"
+        className="ml-2 bg-red-200 text-xl flex items-center justify-center rounded-full text-red-600 py-1 px-2 w-8 h-8"
       >
-        Delete
+        <HiTrash />
       </button>
     </li>
   );
