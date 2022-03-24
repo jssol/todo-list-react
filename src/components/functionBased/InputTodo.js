@@ -2,18 +2,28 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const InputTodo = (props) => {
-  const [title, setTitle] = useState('');
+  const [state, setState] = useState({
+    title: '',
+  });
+
+  const { title } = state;
+  const { addTodoProps } = props;
 
   const onChange = (e) => {
-    setTitle(e.target.value);
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { addTodoProps } = props;
     if (title.trim()) {
       addTodoProps(title);
-      setTitle('');
+      setState({
+        ...state,
+        title: '',
+      });
     } else {
       alert('Please write item');
     }
