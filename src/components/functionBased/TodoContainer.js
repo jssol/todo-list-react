@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Route, Switch } from 'react-router-dom';
 import TodosList from './TodosList';
 import Header from './Header';
 import InputTodo from './InputTodo';
@@ -78,18 +79,20 @@ const TodoContainer = () => {
   };
 
   return (
-    <div className="w-screen h-screen overflow-hidden flex flex-col justify-center align-center">
-      <div className="lg:w-6/12 w-4/5 mx-auto flex flex-col align-center">
-        <Header />
-        <InputTodo addTodoProps={addTodoItem} />
-        <TodosList
-          todos={todos}
-          handleChangeProps={handleChange}
-          deleteTodoProps={deleteTodo}
-          setUpdate={setUpdate}
-        />
+    <Route exact path="/">
+      <div className="w-screen h-screen overflow-hidden flex flex-col justify-center align-center">
+        <div className="lg:w-6/12 w-4/5 mx-auto flex flex-col align-center">
+          <Header />
+          <InputTodo addTodoProps={addTodoItem} />
+          <TodosList
+            todos={todos}
+            handleChangeProps={handleChange}
+            deleteTodoProps={deleteTodo}
+            setUpdate={setUpdate}
+          />
+        </div>
       </div>
-    </div>
+    </Route>
   );
 };
 
