@@ -12,16 +12,6 @@ const getInitialTodos = () => {
 
 const TodoContainer = () => {
   const [state, setState] = useState(getInitialTodos());
-  // useEffect(() => {
-  //   const temp = localStorage.getItem('todos');
-  //   const loadedTodos = JSON.parse(temp);
-  //   if (loadedTodos) {
-  //     setState({
-  //       ...state,
-  //       todos: loadedTodos,
-  //     });
-  //   }
-  // }, []);
   useEffect(() => {
     const { todos } = state;
     const temp = JSON.stringify(todos);
@@ -78,20 +68,18 @@ const TodoContainer = () => {
   };
 
   return (
-    <Route exact path="/">
-      <div className="w-screen h-screen overflow-hidden flex flex-col justify-center align-center">
-        <div className="lg:w-6/12 w-4/5 mx-auto flex flex-col align-center">
-          <Header />
-          <InputTodo addTodoProps={addTodoItem} />
-          <TodosList
-            todos={todos}
-            handleChangeProps={handleChange}
-            deleteTodoProps={deleteTodo}
-            setUpdate={setUpdate}
-          />
-        </div>
+    <div className="w-screen h-screen overflow-hidden flex flex-col justify-center align-center">
+      <div className="lg:w-6/12 w-4/5 mx-auto flex flex-col align-center">
+        <Header />
+        <InputTodo addTodoProps={addTodoItem} />
+        <TodosList
+          todos={todos}
+          handleChangeProps={handleChange}
+          deleteTodoProps={deleteTodo}
+          setUpdate={setUpdate}
+        />
       </div>
-    </Route>
+    </div>
   );
 };
 
