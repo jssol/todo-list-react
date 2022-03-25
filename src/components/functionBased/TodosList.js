@@ -7,11 +7,12 @@ const TodosList = (props) => {
     todos, handleChangeProps, deleteTodoProps, setUpdate,
   } = props;
 
-  return (
-    <ul
-      className="w-full max-h-80 overflow-y-auto lg:w-11/12 flex flex-col align-center self-center mx-auto"
-    >
-      {todos.map((todo) => (
+  const displayManager = (todos) => {
+    let display;
+    if (todos.length === 0) {
+      display = <p className="w-full h-auto sm:h-12 flex items-center justify-center rounded-sm bg-slate-50 text-gray-400 font-bold text-md italic mx-auto px-3">Empty list</p>;
+    } else {
+      display = todos.map((todo) => (
         <TodoItem
           key={todo.id}
           todo={todo}
@@ -19,7 +20,17 @@ const TodosList = (props) => {
           deleteTodoProps={deleteTodoProps}
           setUpdate={setUpdate}
         />
-      ))}
+      ));
+    }
+
+    return display;
+  };
+
+  return (
+    <ul
+      className="w-full max-h-80 overflow-y-auto lg:w-11/12 flex flex-col align-center self-center mx-auto"
+    >
+      {displayManager(todos)}
     </ul>
   );
 };
