@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
 import './index.scss';
-import TodoContainer from './components/functionBased/TodoContainer';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <TodoContainer />
+      <App />
     </Router>
   </React.StrictMode>,
   document.getElementById('root'),
