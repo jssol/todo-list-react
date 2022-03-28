@@ -18,7 +18,8 @@ const TodoContainer = () => {
     localStorage.setItem('todos', temp);
   }, [state.todos]);
 
-  const { todos } = state;
+  let todos = [];
+  if (state.todos) todos = state.todos;
 
   const addTodoItem = (title) => {
     const newTodo = {
