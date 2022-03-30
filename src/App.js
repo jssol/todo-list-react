@@ -1,24 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import TodoContainer from './components/functionBased/TodoContainer';
 
-const initialState = {
-  input: '',
-  todos: [],
-  theme: 'light',
-};
-
-const App = () => {
-  const [state, setState] = useState(initialState);
-  useEffect(() => {
-    setState({ theme: 'dark' });
-    setState({ todos: ['run'] });
-  }, []);
-
-  return (
-    <div className="App">
-      <h1 className="text-2xl text-center text-red-800">Hello world</h1>
-      <p>{state.todos.map((todo) => todo)}</p>
-    </div>
-  );
-};
+const App = () => (
+  <Routes>
+    <Route exact path="/" element={<TodoContainer />} />
+    <Route exact path="/todo-list-react" element={<TodoContainer />} />
+  </Routes>
+);
 
 export default App;
